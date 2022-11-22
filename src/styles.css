@@ -1,0 +1,91 @@
+body {
+    background-image: url(https://i.im.ge/2022/09/06/ORVIzG.ddddddddddddd.png);
+}
+header,main {
+    margin-left: 10px;    
+} 
+#encabezado {
+    background: rgb(46, 60, 111);
+    transition-duration: 2s ;
+}
+#encabezado:hover {
+    background: rgb(59, 130, 201);
+}
+.row {
+    background: rgb(46, 60, 111);
+    margin-bottom: 14px;
+    border: 2px solid rgba(19, 18, 18, 0.664);
+    border-radius: 30px;
+    transition-duration: 1.5s;
+    color: white;
+}
+h2, h1 {
+    font-family: 'Qonquer', sans-serif;
+         font-stretch: extra-expanded;                                       
+}
+.enlaces {
+    text-decoration: none;
+    color: rgb(245, 245, 245);
+}
+.enlaces:hover{
+    border-bottom: 1px solid;
+    color: rgb(29, 32, 65);
+}
+.enlaces:active{
+    color: rgb(117, 134, 175);
+}
+a,h3,h4,h5,h6,p {
+    margin-left: 10px;
+    font-family: 'Raleway', sans-serif;
+}
+.logo {
+    width: 50%; 
+    max-width: 100px;
+    min-width: 70px;
+}
+.banner_img{
+    margin-left: -11px;
+   object-fit: cover;
+    width: 102%;
+    height: 300px;
+    border-radius: 30px;
+    border: 1.5px solid rgb(32, 84, 118);
+}
+button {
+    background: transparent;
+    border: transparent;
+    
+}
+.boton_login {
+    color: white;
+    background: rgb(56, 145, 171);
+    border-radius: 10px ;
+    border: 3px solid rgb(37, 83, 157);
+}
+.boton_login:hover{
+    background: rgb(32, 84, 118);
+}
+.boton_edicion{
+position: relative;
+top:50px;
+right: 10px;
+}  
+.perfil{
+    width: 150px;
+    height: 150px;
+    border: 1px solid #000;
+    border-radius: 50%;
+}
+.texto-a-derecha{
+    position: relative;
+    left: 14px;
+}
+/*h6 {
+    position: relative;
+    left: 100px;
+}*/  
+.row:hover {
+    background: rgb(59, 130, 201);
+    color: rgb(24, 30, 46);
+} 
+
