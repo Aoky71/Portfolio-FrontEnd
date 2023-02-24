@@ -1,4 +1,8 @@
+import { HttpClient } from '@angular/common/http';
 import { Component, OnInit } from '@angular/core';
+import { ActivatedRoute, Router } from '@angular/router';
+import { ExperienciaService } from 'src/app/servicios/experiencia.service';
+import { Experiencia } from './experiencia';
 
 @Component({
   selector: 'app-experiencia',
@@ -7,9 +11,49 @@ import { Component, OnInit } from '@angular/core';
 })
 export class ExperienciaComponent implements OnInit {
 
-  constructor() { }
+  experiencia: Experiencia = new Experiencia();
+experiencias: Experiencia[] = [];
+displayForm: boolean = false;
+displayUpdateForm: boolean = false;
+displayDeleteForm:boolean = false;
+postId: any;
 
-  ngOnInit(): void {
-  }
 
+constructor(private experienciaService:ExperienciaService, private router:Router, private activatedRoute:ActivatedRoute, private http: HttpClient) { }
+
+createExperiencia():void {
+this.experienciaService.create(this.experiencia).subscribe(
+data => {
+this.experiencias.push(data);
+this.experiencia = new Experiencia();
+this.displayForm = false;
+this.router.navigate(['porfolio'])
+}
+);
+}
+
+cargar(experiencia: Experiencia):void{
+    var experienciaToUpdate=experiencia;
+    this.experienciaService.update(experiencia.id,experiencia.nombreEmpresa,experiencia.periodo,experiencia.funcion,experiencia.tituloPuesto,experiencia.logoEmpresa, experienciaToUpdate).subscribe(
+        data => this.postId = data.id)
+    this.displayUpdateForm = false;
+}
+
+deleteExperiencia(experiencia: Experiencia):void {
+this.experienciaService.delete(experiencia.id).subscribe(
+data => {
+this.experiencias = this.experiencias.filter(e => e !== experiencia);
+this.displayDeleteForm = false;
+}
+);
+}
+
+
+ngOnInit(): void {
+this.experienciaService.getAll().subscribe(
+data => {
+this.experiencias = data;
+}
+);
+}
 }

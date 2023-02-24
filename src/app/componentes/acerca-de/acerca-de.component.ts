@@ -1,4 +1,8 @@
 import { Component, OnInit } from '@angular/core';
+import { ActivatedRoute, Router } from '@angular/router';
+import { AcercaDeService } from '../../servicios/acerca-de.service';
+import { AcercaDe } from './acercade';
+
 
 @Component({
   selector: 'app-acerca-de',
@@ -7,9 +11,46 @@ import { Component, OnInit } from '@angular/core';
 })
 export class AcercaDeComponent implements OnInit {
 
-  constructor() { }
+  acercade: AcercaDe = new AcercaDe();
+  id:number=1;
+  acercades: AcercaDe[] = [];
+  displayUpdateForm: boolean = false;
+  postId: any;
+ 
+   constructor(private acercadeService:AcercaDeService, private router:Router, private activeRoute:ActivatedRoute) { 
+   }
+ 
+  createAcercaDe():void {
+    this.acercadeService.create(this.acercade).subscribe(
+      data=> {
+        this.acercades.push(data);
+        this.acercade = new AcercaDe();
+        this.displayUpdateForm = false;
+        this.router.navigate(['porfolio'])
+      }
+    )
+  } 
 
-  ngOnInit(): void {
-  }
 
+  cargar(acercade: AcercaDe):void{
+    var acercaDeToUpdate=acercade;
+    this.acercadeService.update(acercade.id,acercade.descripcionPersonal, acercaDeToUpdate).subscribe(
+        data => this.postId = data.id)
+    this.displayUpdateForm = false;
 }
+
+   ngOnInit(): void {
+    this.acercadeService.get(this.id).subscribe(
+    data => {
+    this.acercade = data;
+    }
+    );
+    this.acercadeService.getAll().subscribe(
+    data => {
+    this.acercades = data;
+    }
+    );
+    }
+
+    
+ }

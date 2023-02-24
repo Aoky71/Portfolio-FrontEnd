@@ -1,31 +1,40 @@
 <div class="container-text-center">
-    <div class="row row-cols-3">
-        <div class="col-2">
-            <h2>Educacion</h2>
-        </div>
-        <div class="col-9"></div>
-        <div class="col-1">
-            <!--button><i class="fa-solid fa-pen"></i></button-->
-        </div>
-        <div class="col">
-            <h5><i class="fa-solid fa-school"></i> Colegio presentacion de Maria</h5>
-        </div>
-        <div class="col-7"></div>
-        <div class="col-1">
-            <!--button><i class="fa-solid fa-pen"></i></button-->
-        </div>
-        <div class="col-12">
-            <p class="texto-a-derecha">Informacion CPM</p>
-        </div>
-        <div class="col-2">
-            <h5><i class="fa-solid fa-code"></i> Mumuki</h5>
-        </div>
-        <div class="col-9"></div>
-        <div class="col-1">
-            <!--Button><i class="fa-solid fa-pen"></i></Button-->
-        </div>
-        <div class="col-12">
-            <p class="texto-a-derecha">Primera etapa de Argentina programa: #SeProgramar</p>
-        </div>
+  <div class="row d-flex justify-content-between">
+    <div class="col-10">
+      <h2>Educacion</h2>
     </div>
+    <div class="col-2">
+      <button type="button" class="btn btn-outline-light" (click)="displayForm = !displayForm"><i class="fa-solid fa-pen"></i></button>
+      <button type="button" class="btn btn-outline-light" (click)="displayUpdateForm = !displayUpdateForm"><i class="fa-solid fa-pen"></i></button>
+      <button type="button" class="btn btn-outline-light" (click)="displayDeleteForm = !displayDeleteForm"><i class="fa-solid fa-trash"></i></button>
+    </div>
+    <div *ngFor="let educacion of educaciones">
+      <div class="col-11">
+        <h5><img [attr.src]="educacion.logo" width="40" height="40"> {{educacion.nombreInstituto}}</h5>
+        <p>{{educacion.fechaInicio}}</p>
+      </div>
+      <p class="texto-a-derecha">{{educacion.descripcionInstitucion}}</p>
+      <p class="texto-a-derecha">{{educacion.urlCertificado}}</p>
+      <div *ngIf="displayUpdateForm">
+        <input [(ngModel)]="educacion.nombreInstituto" type="text" placeholder={{educacion.nombreInstituto}}>
+        <input [(ngModel)]="educacion.descripcionInstitucion" type="text"
+          placeholder={{educacion.descripcionInstitucion}}>
+        <input [(ngModel)]="educacion.fechaInicio" type="text" placeholder={{educacion.fechaInicio}}>
+        <input [(ngModel)]="educacion.logo" type="text" placeholder={{educacion.logo}}>
+        <input [(ngModel)]="educacion.urlCertificado" type="text" placeholder={{educacion.urlCertificado}}>
+        <button type="button" class="btn btn-success btn-sm" (click)="cargar(educacion)">Editar</button>
+      </div>
+      <div *ngIf="displayDeleteForm">
+        <button type="button" class="btn btn-danger btn-sm" (click)="deleteEducacion(educacion)"><i class="fa-solid fa-trash"></i> Eliminar</button>
+      </div>
+    </div>
+    <div *ngIf="displayForm">   
+      <input [(ngModel)]="educacion.nombreInstituto" type="text" class="border border-success" class="rounded-pill" placeholder="Nombre instituto">
+      <input [(ngModel)]="educacion.descripcionInstitucion" type="text" class="border border-success" class="rounded-pill" placeholder="Descripción institución">
+      <input [(ngModel)]="educacion.fechaInicio" type="text" class="border border-success" class="rounded-pill" placeholder="fecha de inicio y final">
+      <input [(ngModel)]="educacion.logo" type="text" class="border border-success" class="rounded-pill" placeholder="url del logo de la institución">     
+      <input [(ngModel)]="educacion.urlCertificado" type="text" class="border border-success" class="rounded-pill" placeholder="Url del certificado">
+      <button type="button" class="btn btn-success btn-sm"  (click)="createEducacion()" > Agregar</button>
+  </div>
+  </div>
 </div>

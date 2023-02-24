@@ -11,7 +11,7 @@ header,main {
 #encabezado:hover {
     background: rgb(59, 130, 201);
 }
-.row {
+.row, button {
     background: rgb(46, 60, 111);
     margin-bottom: 14px;
     border: 2px solid rgba(19, 18, 18, 0.664);
@@ -19,9 +19,9 @@ header,main {
     transition-duration: 1.5s;
     color: white;
 }
-h2, h1 {
+h2, h1, button {
     font-family: 'Qonquer', sans-serif;
-         font-stretch: extra-expanded;                                       
+         font-stretch: extra-expanded;                                     
 }
 .enlaces {
     text-decoration: none;
@@ -89,3 +89,8 @@ right: 10px;
     color: rgb(24, 30, 46);
 } 
 
+input, ::placeholder {
+/*background-image: url(https://i.im.ge/2022/09/06/ORVIzG.ddddddddddddd.png);*/
+   background-color: rgb(0, 0, 0); 
+   color:white;
+}

@@ -5,22 +5,39 @@
         </div>
         <div class="col"></div>
         <div class="col-2">
-            <a href="" class="enlaces"><i class="fa fa-facebook-square" aria-hidden="true"></i></a>
-            <a href="" class="enlaces"><i class="fa-solid fa-envelope"></i></a> 
             <button class="boton_login"><i class="fa-solid fa-arrow-right-to-bracket"></i> Log In</button>
         </div>    
     </div>   
 <div class="row">
     <div class="col-12">
-        <img src="https://media.discordapp.net/attachments/877763749971386368/1016495163884978267/unknown.png" alt="Banner" class="banner_img">
-    <div class="col">
-        <img [src]="miPortfolio.image_perfil" class="perfil" alt="foto de perfil"><!--button class="boton_edicion"><i class="fa-solid fa-pen"></i></button-->
+        <img [src]="persona.urlImagenBanner" alt="Banner" class="banner_img">
+    <div class="col-11">
+        <img [src]="persona.urlImagenPerfil" class="perfil" alt="foto de perfil"><!--button class="boton_edicion"><i class="fa-solid fa-pen"></i></button-->
+    </div>
+    <div class="col-1">
+        <button (click)="displayUpdateForm = !displayUpdateForm"><i class="fa-solid fa-pen"></i></button>
     </div>
         <div class="col">
-        <h2>{{miPortfolio.nombres}}</h2>
-        <h5>{{miPortfolio.ocupacion}}</h5>
-        <h5>Tucuman (Argentina)</h5><p><a href="" class="enlaces">Informacion de contacto</a></p>
+        <h2>{{persona.nombre}}</h2>
+        <h5>{{persona.ocupacion}}</h5>
+        <h5>{{persona.ubicacion}}</h5>
+        <h5>{{persona.telefono}}</h5>
+        <h5>{{persona.email}}</h5>
+        <p><a [href]="persona.urlGit" class="enlaces">GitHub</a></p>
+        <p><a [href]="persona.urlCv" class="enlaces">CV</a></p>
     </div>
     </div>
+    <div class="col-12" *ngIf="displayUpdateForm">
+        <input [(ngModel)]="persona.nombre" type="text" placeholder={{persona.nombre}}>
+        <input [(ngModel)]="persona.ocupacion" type="text" placeholder={{persona.ocupacion}}>
+        <input [(ngModel)]="persona.ubicacion" type="text" placeholder={{persona.ubicacion}}>
+        <input [(ngModel)]="persona.telefono" type="text" placeholder={{persona.telefono}}>
+        <input [(ngModel)]="persona.email" type="text" placeholder={{persona.email}}>
+        <input [(ngModel)]="persona.urlImagenPerfil" type="text" placeholder="url de la imagen de perfil">
+        <input [(ngModel)]="persona.urlImagenBanner" type="text" placeholder="url de la imagen del banner">
+        <input [(ngModel)]="persona.urlGit" type="text" placeholder="url a GitHub">
+        <input [(ngModel)]="persona.urlCv" type="text" placeholder="url a CV">
+        <button type="button" class="btn btn-success btn-sm" (click)="cargar(persona)">Editar</button>
+      </div>
 </div>
 </header>
