@@ -9,7 +9,6 @@ import { LoginUsuario } from './login-usuario';
   styleUrls: ['./login.component.css']
 })
 export class LoginComponent implements OnInit {
-
   isLogged = false;
   isLoginFail = false;
   loginUsuario: LoginUsuario;
@@ -50,13 +49,11 @@ export class LoginComponent implements OnInit {
       },
       err => {
         this.isLogged = false;
-        this.errMsj = err.error.message;
-        this.toastr.error(this.errMsj, 'Fail', {
-          timeOut: 3000,  positionClass: 'toast-top-center',
-        });
-        // console.log(err.error.message);
+        this.isLogginFail = true;
+        this.errMsj = err.error.mensaje;
+        console.log(this.errMsj);
       }
-    );
+    });
   }
 
 }
