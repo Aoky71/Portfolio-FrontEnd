@@ -9,7 +9,7 @@ import { EducacionComponent } from './componentes/educacion/educacion.component'
 import { SkillsComponent } from './componentes/skills/skills.component';
 import { ProyectosComponent } from './componentes/proyectos/proyectos.component';
 import { HttpClientModule } from '@angular/common/http';
-import { IniciarSesionComponent } from './componentes/iniciar-sesion/login.component';
+import { LoginComponent } from './componentes/iniciar-sesion/login.component';
 import { PorfolioComponent } from './componentes/porfolio/porfolio.component';
 import { FormsModule, ReactiveFormsModule } from '@angular/forms';
 import { AcercaDeService } from './servicios/acerca-de.service';
@@ -28,7 +28,7 @@ import { PersonaService } from './servicios/persona.service';
     EducacionComponent,
     SkillsComponent,
     ProyectosComponent,
-    IniciarSesionComponent,
+    LoginComponent,
     PorfolioComponent
   ],
   imports: [
@@ -49,7 +49,8 @@ import { PersonaService } from './servicios/persona.service';
     ProyectoService,
     ProyectosComponent,
     PersonaService,
-    EncabezadoComponent
+    EncabezadoComponent,
+    LoginComponent
   ],
   bootstrap: [AppComponent]
 })

@@ -2,6 +2,9 @@ import { Component, OnInit } from '@angular/core';
 import { Router } from '@angular/router';
 import { AuthService } from 'src/app/servicios/auth.service';
 import { LoginUsuario } from './login-usuario';
+import { TokenService } from 'src/app/servicios/token.service';
+import { JwtDto } from './jwt-dto';
+
 
 @Component({
   selector: 'app-login',
@@ -10,44 +13,37 @@ import { LoginUsuario } from './login-usuario';
 })
 export class LoginComponent implements OnInit {
   isLogged = false;
-  isLoginFail = false;
-  loginUsuario: LoginUsuario;
-  nombreUsuario: string;
-  password: string;
+  isLogginFail = false;
+  loginUsuario!: LoginUsuario;
+  nombreUsuario!: string;
+  password! : string;
   roles: string[] = [];
-  errMsj: string;
+  errMsj!: string;
 
-  constructor(
-    private tokenService: TokenService,
-    private authService: AuthService,
-    private router: Router,
-    private toastr: ToastrService
-  ) { }
+  constructor(private tokenService: TokenService, private authService: AuthService, private router: Router) { }
 
-  ngOnInit() {
-    if (this.tokenService.getToken()) {
+  ngOnInit(): void {
+    if(this.tokenService.getToken()){
       this.isLogged = true;
-      this.isLoginFail = false;
+      this.isLogginFail = false;
       this.roles = this.tokenService.getAuthorities();
     }
   }
 
   onLogin(): void {
     this.loginUsuario = new LoginUsuario(this.nombreUsuario, this.password);
-    this.authService.login(this.loginUsuario).subscribe(
-      data => {
+  
+    this.authService.login(this.loginUsuario).subscribe({
+      next: (data: JwtDto) => {
         this.isLogged = true;
-
+        this.isLogginFail = false;
         this.tokenService.setToken(data.token);
         this.tokenService.setUserName(data.nombreUsuario);
         this.tokenService.setAuthorities(data.authorities);
         this.roles = data.authorities;
-        this.toastr.success('Bienvenido ' + data.nombreUsuario, 'OK', {
-          timeOut: 3000, positionClass: 'toast-top-center'
-        });
-        this.router.navigate(['/']);
+        this.router.navigate(['']);
       },
-      err => {
+      error: (err: any) => {
         this.isLogged = false;
         this.isLogginFail = true;
         this.errMsj = err.error.mensaje;
