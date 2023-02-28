@@ -3,7 +3,15 @@
 // The list of file replacements can be found in `angular.json`.
 
 export const environment = {
-  production: false
+  production: false,
+  apiUrl: 'http://localhost:8080/api',
+  cors: {
+    enabled: true,
+    origin: 'http://localhost:4200',
+    headers: 'Authorization, Content-Type',
+    methods: 'GET, POST, PUT, DELETE',
+    credentials: true
+}
 };
 
 /*

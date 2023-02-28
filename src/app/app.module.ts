@@ -8,7 +8,7 @@ import { ExperienciaComponent } from './componentes/experiencia/experiencia.comp
 import { EducacionComponent } from './componentes/educacion/educacion.component';
 import { SkillsComponent } from './componentes/skills/skills.component';
 import { ProyectosComponent } from './componentes/proyectos/proyectos.component';
-import { HttpClientModule } from '@angular/common/http';
+import { HttpClientModule, HTTP_INTERCEPTORS } from '@angular/common/http';
 import { LoginComponent } from './componentes/iniciar-sesion/login.component';
 import { PorfolioComponent } from './componentes/porfolio/porfolio.component';
 import { FormsModule, ReactiveFormsModule } from '@angular/forms';
@@ -18,6 +18,9 @@ import { EducacionService } from './servicios/educacion.service';
 import { SkillsService } from './servicios/skills.service';
 import { ProyectoService } from './servicios/proyectos.service';
 import { PersonaService } from './servicios/persona.service';
+import { AutenticacionService } from './servicios/autenticacion.service';
+import { interceptorService } from './servicios/interceptor.service';
+
 
 @NgModule({
   declarations: [
@@ -29,7 +32,7 @@ import { PersonaService } from './servicios/persona.service';
     SkillsComponent,
     ProyectosComponent,
     LoginComponent,
-    PorfolioComponent
+    PorfolioComponent,
   ],
   imports: [
     FormsModule,
@@ -40,17 +43,13 @@ import { PersonaService } from './servicios/persona.service';
   ],
   providers: [
     AcercaDeService,
-    AcercaDeComponent,
     PortfolioService,
     EducacionService,
-    EducacionComponent,
-    SkillsComponent,
     SkillsService,
     ProyectoService,
-    ProyectosComponent,
     PersonaService,
-    EncabezadoComponent,
-    LoginComponent
+    AutenticacionService,
+    { provide: HTTP_INTERCEPTORS, useClass: interceptorService, multi: true}
   ],
   bootstrap: [AppComponent]
 })
