@@ -1,5 +1,5 @@
 <div class="container-text-center">
-    <div class="row row-cols-3">
+    <div class="row row-cols-5">
         <div class="col-10">
             <h2>Proyectos</h2>
           </div>
@@ -8,13 +8,24 @@
             <button type="button" class="btn btn-outline-light" (click)="displayUpdateForm = !displayUpdateForm"><i class="fa-solid fa-pen"></i></button>
             <button type="button" class="btn btn-outline-light" (click)="displayDeleteForm = !displayDeleteForm"><i class="fa-solid fa-trash"></i></button>
           </div>  
-        <div *ngFor="let proyecto of proyectos" class="col-12">
-            <div>
+        <div *ngFor="let proyecto of proyectos">
+            <!--div>
             <a [attr.href]="proyecto.urlProyecto" class="enlaces" style="position: relative;left: 14px;" >{{proyecto.nombreProyecto}}</a>
             <p class="texto-a-derecha">{{proyecto.descripcionProyecto}}</p>
             <p>{{proyecto.fechaProyecto}}</p>
             <p>{{proyecto.urlImagen}}</p>
-        </div>
+        </div-->
+        <article class="card">
+          <div class="temporary_text">
+              Place image here
+          </div>
+      <div class="card_content">
+          <span class="card_title">{{proyecto.nombreProyecto}}</span>
+              <span class="card_subtitle">{{proyecto.fechaProyecto}}</span>
+              <p class="card_description">{{proyecto.descripcionProyecto}}</p>
+              <a class="card_description" [attr.href]="proyecto.urlProyecto" class="enlaces" style="position: relative;left: 14px;" >Repositorio</a>   
+      </div>
+      </article>
         <div *ngIf="displayUpdateForm">
             <input [(ngModel)]="proyecto.nombreProyecto" type="text" placeholder={{proyecto.nombreProyecto}}>
             <input [(ngModel)]="proyecto.urlProyecto" type="text" placeholder={{proyecto.urlProyecto}}>

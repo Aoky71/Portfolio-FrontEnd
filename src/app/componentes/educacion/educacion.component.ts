@@ -27,7 +27,7 @@ data => {
 this.educaciones.push(data);
 this.educacion = new Educacion();
 this.displayForm = false;
-this.router.navigate(['porfolio'])
+location.reload();
 }
 );
 }
@@ -46,6 +46,7 @@ this.educaciones = this.educaciones.filter(e => e !== educacion);
 this.displayDeleteForm = false;
 }
 );
+location.reload();
 }
 
 

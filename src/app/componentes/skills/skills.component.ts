@@ -30,6 +30,7 @@ this.displayForm = false;
 this.router.navigate(['porfolio'])
 }
 );
+location.reload();
 }
 
 cargar(skill: Skills):void{
@@ -46,6 +47,7 @@ this.skills = this.skills.filter(e => e !== skill);
 this.displayDeleteForm = false;
 }
 );
+location.reload();
 }
 
 

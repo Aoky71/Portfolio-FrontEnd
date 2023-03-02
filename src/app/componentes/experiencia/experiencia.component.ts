@@ -27,7 +27,7 @@ data => {
 this.experiencias.push(data);
 this.experiencia = new Experiencia();
 this.displayForm = false;
-this.router.navigate(['porfolio'])
+location.reload();
 }
 );
 }
@@ -46,6 +46,7 @@ this.experiencias = this.experiencias.filter(e => e !== experiencia);
 this.displayDeleteForm = false;
 }
 );
+location.reload();
 }
 
 

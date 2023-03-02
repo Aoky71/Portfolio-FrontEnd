@@ -26,7 +26,7 @@ export class AcercaDeComponent implements OnInit {
         this.acercades.push(data);
         this.acercade = new AcercaDe();
         this.displayUpdateForm = false;
-        this.router.navigate(['porfolio'])
+        location.reload();;
       }
     )
   } 
@@ -37,6 +37,7 @@ export class AcercaDeComponent implements OnInit {
     this.acercadeService.update(acercade.id,acercade.descripcionPersonal, acercaDeToUpdate).subscribe(
         data => this.postId = data.id)
     this.displayUpdateForm = false;
+    this.router.navigate(['porfolio']);
 }
 
    ngOnInit(): void {

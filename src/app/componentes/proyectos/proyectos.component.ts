@@ -27,7 +27,7 @@ data => {
 this.proyectos.push(data);
 this.proyecto = new Proyecto();
 this.displayForm = false;
-this.router.navigate(['porfolio'])
+location.reload();
 }
 );
 }
@@ -46,6 +46,7 @@ this.proyectos = this.proyectos.filter(e => e !== proyecto);
 this.displayDeleteForm = false;
 }
 );
+location.reload();
 }
 
 

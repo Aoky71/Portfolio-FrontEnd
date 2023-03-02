@@ -1,17 +1,16 @@
 <header>
     <div class="row align-items-center" id="encabezado">
-        <div class="col-2">
+        <div class="col">
             <img class="logo" src="https://desa.argentinaprograma.inti.gob.ar/pluginfile.php/1/theme_moove/logo/1660276176/APLogo-20-20.png"  alt="logo argentina programa">
         </div>
         <div class="col"></div>
-        <div class="col-2">
-            <button class="boton_login"><i class="fa-solid fa-arrow-right-to-bracket"></i> Log In</button>
+        <div class="col-1">
+            <button (click)="redigirLogin()">Ingresar</button>
         </div>    
-    </div>   
-<div class="row">
+       
     <div class="col-12">
         <img [src]="persona.urlImagenBanner" alt="Banner" class="banner_img">
-    <div class="col-11">
+    <div class="col-12">
         <img [src]="persona.urlImagenPerfil" class="perfil" alt="foto de perfil"><!--button class="boton_edicion"><i class="fa-solid fa-pen"></i></button-->
     </div>
     <div class="col-1">
@@ -38,6 +37,5 @@
         <input [(ngModel)]="persona.urlGit" type="text" placeholder="url a GitHub">
         <input [(ngModel)]="persona.urlCv" type="text" placeholder="url a CV">
         <button type="button" class="btn btn-success btn-sm" (click)="cargar(persona)">Editar</button>
-      </div>
-</div>
+      </div></div>
 </header>

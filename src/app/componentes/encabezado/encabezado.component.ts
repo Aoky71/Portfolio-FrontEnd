@@ -24,7 +24,7 @@ export class EncabezadoComponent implements OnInit {
         this.personas.push(data);
         this.persona = new Persona();
         this.displayUpdateForm = false;
-        this.router.navigate(['porfolio'])
+        location.reload();
       }
     )
   } 
@@ -50,5 +50,8 @@ export class EncabezadoComponent implements OnInit {
     );
     }
 
+    redigirLogin() {
+      this.router.navigate(['iniciar-sesion']);
+    }
     
  }
