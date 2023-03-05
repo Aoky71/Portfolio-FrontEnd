@@ -8,11 +8,12 @@ import { map } from "rxjs";
     providedIn: 'root'
 })
 export class AutenticacionService {
-    url="http://localhost:8080/login"
+    url="http://localhost:8080/login";
     currentUserSubject: BehaviorSubject<any>;
+    public isLogged = false;
     constructor(private http:HttpClient) { 
         console.log("El servicio de autenticacion esta corriendo");
-        this.currentUserSubject= new BehaviorSubject<any>(JSON.parse(sessionStorage.getItem('currentUser')|| '{}'));
+        this.currentUserSubject= new BehaviorSubject<any>(JSON.parse(localStorage.getItem('currentUser')|| '{}'));
         this.currentUserSubject.subscribe(currentUser => {
             console.log(currentUser);
           });
@@ -21,8 +22,9 @@ export class AutenticacionService {
     iniciarSesion(credenciales:any):Observable<any>
     {
         return this.http.post(this.url, credenciales).pipe(map(data=>{
-        sessionStorage.setItem('currentUser', JSON.stringify(data));
+        localStorage.setItem('currentUser', JSON.stringify(data));
         console.log(data);
+        this.isLogged = true;
         this.currentUserSubject.next(data);
             console.log(data);
             return data;
@@ -34,4 +36,16 @@ export class AutenticacionService {
     return this.currentUserSubject.value;
    }
 
+   
+
+   isLoggedIn() {
+    return this.isLogged;
+  }
+
+  cerrarSesion() {
+      localStorage.removeItem('currentUser');
+      this.currentUserSubject.next(null);
+      this.isLogged = false;
+  }
+  
 }

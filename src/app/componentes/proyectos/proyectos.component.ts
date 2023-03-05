@@ -3,6 +3,7 @@ import { HttpClient } from '@angular/common/http';
 import { ActivatedRoute, Router } from '@angular/router';
 import { Proyecto } from './proyecto';
 import { ProyectoService } from 'src/app/servicios/proyectos.service';
+import { AutenticacionService } from 'src/app/servicios/autenticacion.service';
 
 @Component({
   selector: 'app-proyectos',
@@ -19,7 +20,7 @@ displayDeleteForm:boolean = false;
 postId: any;
 
 
-constructor(private proyectoService:ProyectoService, private router:Router, private activatedRoute:ActivatedRoute, private http: HttpClient) { }
+constructor(private proyectoService:ProyectoService, private router:Router, private activatedRoute:ActivatedRoute, private http: HttpClient, public autenticaticionService: AutenticacionService) { }
 
 createProyecto():void {
 this.proyectoService.create(this.proyecto).subscribe(

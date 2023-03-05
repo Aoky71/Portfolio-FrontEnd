@@ -1,6 +1,7 @@
 import { HttpClient } from '@angular/common/http';
 import { Component, OnInit } from '@angular/core';
 import { ActivatedRoute, Router } from '@angular/router';
+import { AutenticacionService } from 'src/app/servicios/autenticacion.service';
 import { EducacionService } from 'src/app/servicios/educacion.service';
 import { Educacion } from './educacion';
 
@@ -19,7 +20,7 @@ displayDeleteForm:boolean = false;
 postId: any;
 
 
-constructor(private educacionService:EducacionService, private router:Router, private activatedRoute:ActivatedRoute, private http: HttpClient) { }
+constructor(private educacionService:EducacionService, private router:Router, private activatedRoute:ActivatedRoute, private http: HttpClient, public autenticaticionService: AutenticacionService) { }
 
 createEducacion():void {
 this.educacionService.create(this.educacion).subscribe(

@@ -1,30 +1,38 @@
-<header>
-    <div class="row align-items-center" id="encabezado">
-        <div class="col">
-            <img class="logo" src="https://desa.argentinaprograma.inti.gob.ar/pluginfile.php/1/theme_moove/logo/1660276176/APLogo-20-20.png"  alt="logo argentina programa">
-        </div>
-        <div class="col"></div>
-        <div class="col-1">
-            <button (click)="redigirLogin()">Ingresar</button>
-        </div>    
+<div id="sidebar" class="d-flex flex-column justify-content-center align-items-center">
+    <img class="logo" src="https://desa.argentinaprograma.inti.gob.ar/pluginfile.php/1/theme_moove/logo/1660276176/APLogo-20-20.png"  alt="logo argentina programa">
+    <!--div class="col-12">
+        <img [src]="persona.urlImagenPerfil" class="perfil" alt="foto de perfil">
+    </div--> 
        
+        <p>{{persona.nombre}}</p>
+        <p>{{persona.ocupacion}}</p>
+        <!--p>{{persona.ubicacion}}</p-->
+        <!--p>{{persona.telefono}}</p-->
+        <p>{{persona.email}}</p>
+        <p><a [href]="persona.urlGit" class="enlaces"><i class="fa-brands fa-github fa-2xl"></i> Mi github</a></p>
+        <p><a [href]="persona.urlCv" class="enlaces">Curriculum Vitae</a></p>
+     
+      <button routerLink="/" fragment="sobre mi">Sobre mi</button><br>
+      <button routerLink="/" fragment="estudios">Estudios</button><br>
+      <button routerLink="/" fragment="experiencia">Experiencia</button><br>
+      <button routerLink="/" fragment="proyectos">Proyectos</button><br>
+      <button routerLink="/" fragment="habilidades">Habilidades</button><br>
+      <button *ngIf="autenticaticionService.isLoggedIn()" (click)="displayUpdateForm = !displayUpdateForm" ><i class="fa-solid fa-pen"></i> Editar Contenido</button>
+      <button *ngIf="!autenticaticionService.isLoggedIn()" (click)="redigirLogin()">Ingresar</button><br>
+      <button *ngIf="autenticaticionService.isLoggedIn()" (click)="autenticaticionService.cerrarSesion()">Cerrar sesión</button><br>
+  </div>
+<header>
+    <div class="col-12"></div>
+    <div class="row align-items-center" id="encabezado">
+        <div class="col"></div>  
     <div class="col-12">
         <img [src]="persona.urlImagenBanner" alt="Banner" class="banner_img">
-    <div class="col-12">
-        <img [src]="persona.urlImagenPerfil" class="perfil" alt="foto de perfil"><!--button class="boton_edicion"><i class="fa-solid fa-pen"></i></button-->
-    </div>
+        </div><div></div>
+    <!--div class="col-12">
+        <img [src]="persona.urlImagenPerfil" class="perfil" alt="foto de perfil">
+    </div-->
     <div class="col-1">
-        <button (click)="displayUpdateForm = !displayUpdateForm"><i class="fa-solid fa-pen"></i></button>
-    </div>
-        <div class="col">
-        <h2>{{persona.nombre}}</h2>
-        <h5>{{persona.ocupacion}}</h5>
-        <h5>{{persona.ubicacion}}</h5>
-        <h5>{{persona.telefono}}</h5>
-        <h5>{{persona.email}}</h5>
-        <p><a [href]="persona.urlGit" class="enlaces">GitHub</a></p>
-        <p><a [href]="persona.urlCv" class="enlaces">CV</a></p>
-    </div>
+        
     </div>
     <div class="col-12" *ngIf="displayUpdateForm">
         <input [(ngModel)]="persona.nombre" type="text" placeholder={{persona.nombre}}>

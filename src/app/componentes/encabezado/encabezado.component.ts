@@ -2,6 +2,7 @@ import { Component, OnInit } from '@angular/core';
 import { PersonaService } from 'src/app/servicios/persona.service';
 import { ActivatedRoute, Router } from '@angular/router';
 import { Persona } from './persona';
+import { AutenticacionService } from 'src/app/servicios/autenticacion.service';
 
 @Component({
   selector: 'app-encabezado',
@@ -15,7 +16,7 @@ export class EncabezadoComponent implements OnInit {
   displayUpdateForm: boolean = false;
   postId: any;
  
-   constructor(private personaService:PersonaService, private router:Router, private activeRoute:ActivatedRoute) { 
+   constructor(private personaService:PersonaService, private router:Router, private activeRoute:ActivatedRoute, public autenticaticionService: AutenticacionService) { 
    }
  
   createPersona():void {
@@ -54,4 +55,6 @@ export class EncabezadoComponent implements OnInit {
       this.router.navigate(['iniciar-sesion']);
     }
     
+    
+
  }

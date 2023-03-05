@@ -3,6 +3,7 @@ import { ActivatedRoute, Router } from '@angular/router';
 import { HttpClient } from '@angular/common/http';
 import { SkillsService } from 'src/app/servicios/skills.service';
 import { Skills } from './skills';
+import { AutenticacionService } from 'src/app/servicios/autenticacion.service';
 
 @Component({
   selector: 'app-skills',
@@ -19,7 +20,7 @@ displayDeleteForm:boolean = false;
 postId: any;
 
 
-constructor(private skillService:SkillsService, private router:Router, private activatedRoute:ActivatedRoute, private http: HttpClient) { }
+constructor(private skillService:SkillsService, private router:Router, private activatedRoute:ActivatedRoute, private http: HttpClient, public autenticaticionService: AutenticacionService) { }
 
 createSkill():void {
 this.skillService.create(this.skill).subscribe(

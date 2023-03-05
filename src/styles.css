@@ -1,26 +1,28 @@
 body {
-  background-image: url(https://img.freepik.com/foto-gratis/impresionante-foto-mar-cielo-oscuro-purpura-lleno-estrellas_181624-23013.jpg?w=740&t=st=1677787163~exp=1677787763~hmac=a617c54734f1d8e24e9ce60862cbf8a8a0c7e620d726c3a7c389aa0f96b944ce);
+ /* background-image: url(https://img.freepik.com/foto-gratis/impresionante-foto-mar-cielo-oscuro-purpura-lleno-estrellas_181624-23013.jpg?w=740&t=st=1677787163~exp=1677787763~hmac=a617c54734f1d8e24e9ce60862cbf8a8a0c7e620d726c3a7c389aa0f96b944ce); */
   background-repeat: none;
   background-size: cover;
   background-attachment: fixed;
-    /* background: rgba(46, 60, 111,44); */
+     background: rgba(46, 60, 111,44);
   
 }
 header,main {
    /* margin-left: 10px;  */  
 } 
 div {
-    margin: 1%;
+    /*margin: 1%; */
 }
 .row {
    /* background: rgb(46, 60, 111);*/
    /* background: rgba(71, 45, 125, 49); */
+   margin-left: 18%;
    background: rgba(46, 60, 111,44);
     margin-bottom: 14px;
-    border: 2px solid rgba(19, 18, 18, 0.664);
-    border-radius: 30px;
+   /* border: 2px solid rgba(19, 18, 18, 0.664);*/
+    border-radius: 30px; 
     transition-duration: 1.5s;
     color: white;
+    
 }
 h2, h1, button {
     font-family: 'Qonquer', sans-serif;
@@ -47,7 +49,6 @@ a,h3,h4,h5,h6,p {
     min-width: 70px;
 }
 .banner_img{
-    margin-left: -11px;
    object-fit: cover;
     width: 100%;
     height: 300px;
@@ -65,8 +66,8 @@ top:50px;
 right: 10px;
 }  
 .perfil{
-    width: 200px;
-    height: 200px;
+    width: 10%;
+    height:100%; 
     border: 1px solid #000;
     border-radius: 50%;
 }
@@ -292,16 +293,17 @@ background-image: url(https://img.freepik.com/foto-gratis/impresionante-foto-mar
     transition: box-shadow 0.2s ease-in;
   }
   
+  #sidebar {
+    position: fixed;
+    top: 0;
+    left: 0;
+    bottom: 0;
+    width: 18%; /* Ancho del sidebar */
+    background: rgba(46, 60, 111,44);
+}
   
+
   
-  
-  
-  
-  
-  
-  
-  
-  
-  
+
   
   

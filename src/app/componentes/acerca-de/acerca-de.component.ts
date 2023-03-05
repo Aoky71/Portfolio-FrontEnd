@@ -1,5 +1,6 @@
 import { Component, OnInit } from '@angular/core';
 import { ActivatedRoute, Router } from '@angular/router';
+import { AutenticacionService } from 'src/app/servicios/autenticacion.service';
 import { AcercaDeService } from '../../servicios/acerca-de.service';
 import { AcercaDe } from './acercade';
 
@@ -17,7 +18,7 @@ export class AcercaDeComponent implements OnInit {
   displayUpdateForm: boolean = false;
   postId: any;
  
-   constructor(private acercadeService:AcercaDeService, private router:Router, private activeRoute:ActivatedRoute) { 
+   constructor(private acercadeService:AcercaDeService, private router:Router, private activeRoute:ActivatedRoute,public autenticaticionService: AutenticacionService) { 
    }
  
   createAcercaDe():void {
