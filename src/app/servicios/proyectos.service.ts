@@ -33,8 +33,8 @@ export class ProyectoService{
   }
 
   //actualizar Proyecto
-  update(id:number,nombreProyecto:String,descripcionProyecto:String,urlProyecto:String,fechaProyecto:string,urlImagen:string, proyecto:Proyecto ):Observable<Proyecto>{
-    return this.http.put<Proyecto>(`${this.urlActualizar}/${id}?nombre del proyecto=${nombreProyecto}&Descripcion del proyecto=${descripcionProyecto}&URL del proyecto=${urlProyecto}&fecha del Proyecto=${fechaProyecto}&url de la imagen=${urlImagen}`, proyecto);
+  update(id:number,nombreProyecto:String,descripcionProyecto:String,urlProyecto:String,urlGit:string,urlImagen:string, proyecto:Proyecto ):Observable<Proyecto>{
+    return this.http.put<Proyecto>(`${this.urlActualizar}/${id}?nombre del proyecto=${nombreProyecto}&Descripcion del proyecto=${descripcionProyecto}&URL del proyecto=${urlProyecto}&URL github=${urlGit}&url de la imagen=${urlImagen}`, proyecto);
   }
 
   //eliminar proyecto

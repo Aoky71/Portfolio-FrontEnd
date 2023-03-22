@@ -3,6 +3,6 @@ export class Proyecto {
     nombreProyecto:any;
     descripcionProyecto:any;
     urlProyecto:any;
-    fechaProyecto:any;
+    urlGit:any;
     urlImagen:any;
 }

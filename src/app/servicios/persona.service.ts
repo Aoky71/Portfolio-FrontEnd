@@ -29,8 +29,8 @@ export class PersonaService {
   }
 
   //actualizar Persona
-  update(id:number,nombre:string,ocupacion:string,ubicacion:string,telefono:string,email:string,urlImagenPerfil:string,urlImagenBanner:string,urlGit:string,urlCv:string, persona:Persona):Observable<Persona>{
-    return this.http.put<Persona>(`${this.urlActualizar}/${id}?nombre=${nombre}&ocupacion=${ocupacion}&ubicacion=${ubicacion}&telefono=${telefono}&email=${email}&urlImagenPerfil=${urlImagenPerfil}&urlImagenBanner=${urlImagenBanner}&urlGit=${urlGit}&urlCv=${urlCv}`, persona);
+  update(id:number,nombre:string,ocupacion:string,urlImagenPerfil:string,urlImagenBanner:string, persona:Persona):Observable<Persona>{
+    return this.http.put<Persona>(`${this.urlActualizar}/${id}?nombre=${nombre}&ocupacion=${ocupacion}&urlImagenPerfil=${urlImagenPerfil}&urlImagenBanner=${urlImagenBanner}`, persona);
   }
 
   //eliminar Persona

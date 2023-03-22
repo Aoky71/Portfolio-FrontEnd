@@ -33,8 +33,8 @@ export class SkillsService {
   }
 
   //actualizar Skill
-  update(id:number,nombreSkill:String,gradoSkill:number, skill:Skills ):Observable<Skills>{
-    return this.http.put<Skills>(`${this.urlActualizar}/${id}?nombre=${nombreSkill}&Grado=${gradoSkill}`, skill);
+  update(id:number,nombreSkill:String,descripcionSkill:String,urlImagen:String, skill:Skills ):Observable<Skills>{
+    return this.http.put<Skills>(`${this.urlActualizar}/${id}?nombre=${nombreSkill}&descripcion=${descripcionSkill}&urlImagen=${urlImagen}`, skill);
   }
 
   //eliminar Skill

@@ -20,6 +20,10 @@ import { ProyectoService } from './servicios/proyectos.service';
 import { PersonaService } from './servicios/persona.service';
 import { AutenticacionService } from './servicios/autenticacion.service';
 import { interceptorService } from './servicios/interceptor.service';
+import { FooterService } from './servicios/footer.service';
+import { FooterComponent } from './componentes/footer/footer.component';
+import { SoftComponent } from './componentes/Soft/Soft.component';
+import { SoftService } from './servicios/Soft.Service';
 
 
 @NgModule({
@@ -33,6 +37,8 @@ import { interceptorService } from './servicios/interceptor.service';
     ProyectosComponent,
     LoginComponent,
     PorfolioComponent,
+    FooterComponent,
+    SoftComponent
   ],
   imports: [
     FormsModule,
@@ -48,7 +54,9 @@ import { interceptorService } from './servicios/interceptor.service';
     SkillsService,
     ProyectoService,
     PersonaService,
+    FooterService,
     AutenticacionService,
+    SoftService,
     { provide: HTTP_INTERCEPTORS, useClass: interceptorService, multi: true}
   ],
   bootstrap: [AppComponent]

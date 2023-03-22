@@ -8,33 +8,33 @@
       <button *ngIf="autenticaticionService.isLoggedIn()" type="button" class="btn btn-outline-light" (click)="displayUpdateForm = !displayUpdateForm"><i class="fa-solid fa-pen"></i></button>
       <button *ngIf="autenticaticionService.isLoggedIn()" type="button" class="btn btn-outline-light" (click)="displayDeleteForm = !displayDeleteForm"><i class="fa-solid fa-trash"></i></button>
     </div>
+    <div *ngIf="displayForm">   
+      <input [(ngModel)]="educacion.nombreInstituto" type="text" class="border border-success" class="rounded-pill" placeholder="Nombre instituto"><br>
+      <input [(ngModel)]="educacion.descripcionInstitucion" type="text" class="border border-success" class="rounded-pill" placeholder="Descripción institución"><br>
+      <input [(ngModel)]="educacion.fechaInicio" type="text" class="border border-success" class="rounded-pill" placeholder="fecha de inicio y final"><br>
+      <input [(ngModel)]="educacion.logo" type="text" class="border border-success" class="rounded-pill" placeholder="url del logo de la institución"><br>     
+      <input [(ngModel)]="educacion.urlCertificado" type="text" class="border border-success" class="rounded-pill" placeholder="Url del certificado"><br>
+      <button type="button" class="btn btn-success btn-sm"  (click)="createEducacion()" > Agregar</button>
+  </div>
     <div *ngFor="let educacion of educaciones">
-      <div class="col-11">
-        <h5><img [attr.src]="educacion.logo" width="40" height="40"> {{educacion.nombreInstituto}}</h5>
-        <p>{{educacion.fechaInicio}}</p>
+      <div class="col-12">
+        <h5>
+          <img [attr.src]="educacion.logo" width="70" height="50">{{educacion.nombreInstituto}}
+          <span class="fecha">{{educacion.fechaInicio}}</span>
+        </h5>
       </div>
-      <p class="texto-a-derecha">{{educacion.descripcionInstitucion}}</p>
-      <p class="texto-a-derecha">{{educacion.urlCertificado}}</p>
+      <p>{{educacion.descripcionInstitucion}}</p><p><a [href]="educacion.urlCertificado">Enlance al Certificado</a></p>
       <div *ngIf="displayUpdateForm">
-        <input [(ngModel)]="educacion.nombreInstituto" type="text" placeholder={{educacion.nombreInstituto}}>
-        <input [(ngModel)]="educacion.descripcionInstitucion" type="text"
-          placeholder={{educacion.descripcionInstitucion}}>
-        <input [(ngModel)]="educacion.fechaInicio" type="text" placeholder={{educacion.fechaInicio}}>
-        <input [(ngModel)]="educacion.logo" type="text" placeholder={{educacion.logo}}>
-        <input [(ngModel)]="educacion.urlCertificado" type="text" placeholder={{educacion.urlCertificado}}>
+        <input [(ngModel)]="educacion.nombreInstituto" type="text" placeholder={{educacion.nombreInstituto}}><br>
+        <input [(ngModel)]="educacion.descripcionInstitucion" type="text" placeholder={{educacion.descripcionInstitucion}}><br>
+        <input [(ngModel)]="educacion.fechaInicio" type="text" placeholder={{educacion.fechaInicio}}><br>
+        <input [(ngModel)]="educacion.logo" type="text" placeholder={{educacion.logo}}><br>
+        <input [(ngModel)]="educacion.urlCertificado" type="text" placeholder={{educacion.urlCertificado}}><br>
         <button type="button" class="btn btn-success btn-sm" (click)="cargar(educacion)">Editar</button>
       </div>
       <div *ngIf="displayDeleteForm">
         <button type="button" class="btn btn-danger btn-sm" (click)="deleteEducacion(educacion)"><i class="fa-solid fa-trash"></i> Eliminar</button>
       </div>
     </div>
-    <div *ngIf="displayForm">   
-      <input [(ngModel)]="educacion.nombreInstituto" type="text" class="border border-success" class="rounded-pill" placeholder="Nombre instituto">
-      <input [(ngModel)]="educacion.descripcionInstitucion" type="text" class="border border-success" class="rounded-pill" placeholder="Descripción institución">
-      <input [(ngModel)]="educacion.fechaInicio" type="text" class="border border-success" class="rounded-pill" placeholder="fecha de inicio y final">
-      <input [(ngModel)]="educacion.logo" type="text" class="border border-success" class="rounded-pill" placeholder="url del logo de la institución">     
-      <input [(ngModel)]="educacion.urlCertificado" type="text" class="border border-success" class="rounded-pill" placeholder="Url del certificado">
-      <button type="button" class="btn btn-success btn-sm"  (click)="createEducacion()" > Agregar</button>
-  </div>
   </div>
 </div>

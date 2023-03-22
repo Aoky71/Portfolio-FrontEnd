@@ -35,7 +35,7 @@ location.reload();
 
 cargar(proyecto: Proyecto):void{
     var proyectoToUpdate=proyecto;
-    this.proyectoService.update(proyecto.id,proyecto.nombreProyecto,proyecto.descripcionProyecto,proyecto.urlProyecto,proyecto.fechaProyecto,proyecto.urlImagen, proyectoToUpdate).subscribe(
+    this.proyectoService.update(proyecto.id,proyecto.nombreProyecto,proyecto.descripcionProyecto,proyecto.urlProyecto,proyecto.urlGit,proyecto.urlImagen, proyectoToUpdate).subscribe(
         data => this.postId = data.id)
     this.displayUpdateForm = false;
 }

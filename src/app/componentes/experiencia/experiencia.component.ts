@@ -12,7 +12,7 @@ import { Experiencia } from './experiencia';
 })
 export class ExperienciaComponent implements OnInit {
 
-  experiencia: Experiencia = new Experiencia();
+experiencia: Experiencia = new Experiencia();
 experiencias: Experiencia[] = [];
 displayForm: boolean = false;
 displayUpdateForm: boolean = false;

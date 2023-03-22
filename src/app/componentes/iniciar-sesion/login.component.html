@@ -1,11 +1,11 @@
-<section class="vh-100 gradient-custom">
-  <div class="container py-5 h-100">
-    <div class="row align-items-center h-100">
+
+
+    <div class="row align-items-center ">
       <div class="col-md-6 mx-auto text-center">
         <div class="mb-md-5 mt-md-4 pb-5">
-          <h2 class="fw-bold mb-2 text-uppercase">Login</h2>
+          <h2 class="fw-bold mb-2 text-uppercase text-white">Login</h2>
           <p class="text-white-50 mb-5">Por favor, ingresar usuario y clave</p>
-          <form [formGroup]="form" (ngSubmit)="onEnviar($event)">
+          <form [formGroup]="form" (ngSubmit)="onEnviar($event)" class="form-login">
             <div class="form-outline form-white mb-4">
               <input type="email" formControlName="username" id="nombreUsuario" name="nombreUsuario" class="form-control form-control-lg"/>
               <label class="form-label" for="nombreUsuario">Usuario</label>
@@ -19,5 +19,6 @@
         </div>
       </div>
     </div>
-  </div>
-</section>
+
+
+

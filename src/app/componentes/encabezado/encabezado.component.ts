@@ -33,7 +33,7 @@ export class EncabezadoComponent implements OnInit {
 
   cargar(persona: Persona):void{
     var personaToUpdate=persona;
-    this.personaService.update(persona.id,persona.nombre,persona.ocupacion,persona.ubicacion,persona.telefono,persona.email,persona.urlImagenPerfil,persona.urlImagenBanner,persona.urlGit,persona.urlCv, personaToUpdate).subscribe(
+    this.personaService.update(persona.id,persona.nombre,persona.ocupacion,persona.urlImagenPerfil,persona.urlImagenBanner, personaToUpdate).subscribe(
         data => this.postId = data.id)
     this.displayUpdateForm = false;
 }

@@ -36,7 +36,7 @@ location.reload();
 
 cargar(skill: Skills):void{
     var skillToUpdate=skill;
-    this.skillService.update(skill.id,skill.nombreSkill,skill.gradoSkill, skillToUpdate).subscribe(
+    this.skillService.update(skill.id,skill.nombreSkill,skill.descripcionSkill,skill.urlImagen, skillToUpdate).subscribe(
         data => this.postId = data.id)
     this.displayUpdateForm = false;
 }
