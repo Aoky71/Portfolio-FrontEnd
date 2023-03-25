@@ -9,7 +9,8 @@
       <button onclick="location.href='/portfolio#estudios';">Estudios</button><br>
       <button onclick="location.href='/portfolio#habilidades';">Habilidades</button><br> 
      <button onclick="location.href='/portfolio#proyectos';">Proyectos</button><br>
-      <button *ngIf="autenticaticionService.isLoggedIn()" (click)="displayUpdateForm = !displayUpdateForm" ><i class="fa-solid fa-pen"></i> Editar</button>
+     <button onclick="location.href='/portfolio#contacto';">Contacto</button><br>
+      <button *ngIf="autenticaticionService.isLoggedIn()" (click)="displayUpdateForm = !displayUpdateForm" onclick="location.href='/portfolio#encabezado';" ><i class="fa-solid fa-pen"></i>Editar</button>
       <button *ngIf="!autenticaticionService.isLoggedIn()" (click)="redigirLogin()">Ingresar</button><br>
       <button *ngIf="autenticaticionService.isLoggedIn()" (click)="autenticaticionService.cerrarSesion()">Cerrar sesión</button><br>
   </div>

@@ -17,27 +17,27 @@ export class SoftService {
 
     constructor(private http:HttpClient) {}
 
-    //obtener la lista Soft
+    //obtener la lista de Soft skills
   getAll():Observable<Soft[]>{
     return this.http.get<Soft[]>(this.urlLista);
   }
 
-  // crear Soft
+  // crear Soft skill
   create(educacion:Soft):Observable<Soft>{
     return this.http.post<Soft>(this.urlCrear, educacion);
   }
 
-  //Obtener Soft
+  //Obtener Soft skill
   get(id:number):Observable<Soft>{
     return this.http.get<Soft>(`${this.url}/${id}`);
   }
 
-  //actualizar Soft
+  //actualizar Soft skill
   update(id:number,nombreSkill:String,descripcionSkill:String,urlImagen:String, soft:Soft ):Observable<Soft>{
     return this.http.put<Soft>(`${this.urlActualizar}/${id}?nombre=${nombreSkill}&descripcion=${descripcionSkill}&urlImagen=${urlImagen}`, soft);
   }
 
-  //eliminar Soft
+  //eliminar Soft skill
   delete(id:number):Observable<Soft>{
     return this.http.delete<Soft>(this.urlEliminar+'/'+id);
   }

@@ -48,3 +48,8 @@ footer {
   .copywright{
 margin: 0;
   }
+
+  .col-6 {
+   /* border-radius: 2px solid rgb(240, 240, 247); */
+    margin-top: 4%;
+  }

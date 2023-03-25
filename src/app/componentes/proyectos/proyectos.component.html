@@ -22,8 +22,8 @@
         <h2>{{proyecto.nombreProyecto}}</h2>
         <p>{{proyecto.descripcionProyecto}}</p>
         <div class="links">
-          <a [href]="proyecto.urlProyecto">Enlace al proyecto</a>
-          <a [href]="proyecto.urlGit">Enlace al repositorio</a>
+          <a [href]="proyecto.urlProyecto" target="_blank">Enlace al proyecto</a>
+          <a [href]="proyecto.urlGit" target="_blank">Enlace al repositorio</a>
         </div>
       </div>
            <div *ngIf="displayUpdateForm">

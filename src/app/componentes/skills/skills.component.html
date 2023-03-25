@@ -15,7 +15,7 @@
             <input [(ngModel)]="skill.urlImagen" type="text" class="border border-success" class="rounded-pill" placeholder="url de la imagen de la skill"><br>
             <button type="button" class="btn btn-success btn-sm"  (click)="createSkill()" > Agregar</button>
         </div>
-        <div *ngFor="let skill of skills" >
+        <div class="col-4" *ngFor="let skill of skills" >
             <div class="flip-card">
                 <div class="flip-card-inner">
                     <div class="flip-card-front">

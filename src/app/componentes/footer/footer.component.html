@@ -1,6 +1,11 @@
-<footer>
+<footer id="contacto">
     <div class="container">
       <h1>Contacto</h1>
+      <div class="social-links">
+        <a href="https://biolink.website/EstebanBelmonte" target="_blank"><i class="fa-solid fa-address-book"></i></a>
+        <a href="https://linkedin.com/in/esteban-daniel-belmonte-52a26a162" target="_blank"><i class="fab fa-linkedin"></i></a>
+         <a href="https://github.com/Esteban-Belmonte" target="_blank"><i class="fab fa-github"></i></a>
+      </div>
       <h4>
         Si tienes algún proyecto y te gustaría que forme parte del mismo, te invito a contactarme con el siguiente formulario, también puedes usarlo simplemente para dejarme algún comentario o decir "¡hola!".</h4>
         <div *ngIf="displayForm">  
@@ -18,17 +23,15 @@
         </div>
         <button type="submit" (click)="createFooter()">Enviar</button>
     </div>
-  
-      <div class="social-links">
-        <a href="https://github.com/Esteban-Belmonte"><i class="fab fa-github"></i></a>
-        <a href="https://linkedin.com/in/esteban-daniel-belmonte-52a26a162"><i class="fab fa-linkedin"></i></a>
-      </div>
-    <div *ngIf="autenticaticionService.isLoggedIn()">
-        <h4>Formularios Enviados:</h4>
-           <div *ngFor="let footer of footers">
-              <h1>email: </h1><p>{{footer.email}}</p><br>
-              <h1>nombre: </h1><p>{{footer.nombre}}</p><br>
-              <h1>asunto: </h1><p>{{footer.asunto}}</p>
+    <div class="col-12" *ngIf="autenticaticionService.isLoggedIn()">
+        <h3>Formularios Enviados:</h3>
+           <div class="col-12 border d-flex align-items-center justify-content-center" *ngFor="let footer of footers">
+              <h3>{{footer.email}}</h3>
+              <h3>{{footer.nombre}}</h3>
+              <h3>{{footer.asunto}}</h3>
+              <div>
+                <button type="button" class="btn btn-danger btn-sm" (click)="deleteFooter(footer)"><i class="fa-solid fa-trash"></i></button>
+              </div>
            </div>
     </div>
     <p class="copywright">&copy; 2023 - Todos los derechos reservados</p>

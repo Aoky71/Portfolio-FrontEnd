@@ -19,11 +19,11 @@
     <div *ngFor="let educacion of educaciones">
       <div class="col-12">
         <h5>
-          <img [attr.src]="educacion.logo" width="70" height="50">{{educacion.nombreInstituto}}
+          <img [attr.src]="educacion.logo" width="60" height="50">{{educacion.nombreInstituto}}
           <span class="fecha">{{educacion.fechaInicio}}</span>
         </h5>
       </div>
-      <p>{{educacion.descripcionInstitucion}}</p><p><a [href]="educacion.urlCertificado">Enlance al Certificado</a></p>
+      <p>{{educacion.descripcionInstitucion}}</p><p><a [href]="educacion.urlCertificado" target="_blank">Enlance al Certificado</a></p>
       <div *ngIf="displayUpdateForm">
         <input [(ngModel)]="educacion.nombreInstituto" type="text" placeholder={{educacion.nombreInstituto}}><br>
         <input [(ngModel)]="educacion.descripcionInstitucion" type="text" placeholder={{educacion.descripcionInstitucion}}><br>
