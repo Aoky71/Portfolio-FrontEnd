@@ -1,9 +1,10 @@
 
 <div class="row align-items-center">
   <div class="col-md-6 mx-auto text-center">
+    <button class="btn-home" onclick="location.href='/portfolio';"><i class="fa-solid fa-house fa-2x1"></i></button>
     <div class="mb-md-5 mt-md-4 pb-5">
-      <h2 class="fw-bold mb-2 text-uppercase text-white">Login</h2>
-      <p class="text-white-50 mb-5">Por favor, ingresar usuario y clave</p>
+      <h2 class="fw-bold mb-2 text-uppercase text-white">Inicio de sesion</h2>
+      <p class="text-white-50 mb-5">Por favor, ingresar usuario y contraseña</p>
       <form [formGroup]="form" (ngSubmit)="onEnviar($event)" class="form-login">
         <div class="form-outline form-white mb-4">
           <input type="email" formControlName="username" id="nombreUsuario" name="nombreUsuario" class="form-control form-control-lg" [required]="true"/>
@@ -15,13 +16,21 @@
         </div>
         <div class="form-outline form-white mb-4">
           <input type="password" formControlName="password" id="password" name="password" class="form-control form-control-lg" [required]="true"/>
-          <label class="form-label" for="password">Password</label>
+          <label class="form-label" for="password">Contraseña</label>
           <div *ngIf="Password?.invalid && (Password?.dirty || Password?.touched)" class="alert alert-danger">
             <div *ngIf="Password?.errors?.['required']">Este campo es requerido.</div>
           </div>
         </div>
         <div *ngIf="errorLogin" class="alert alert-danger">Error al iniciar sesión. Por favor, verifique su nombre de usuario y contraseña.</div>
-        <button class="btn btn-outline-light btn-lg px-5" type="submit">Login</button>
+        <button class="btn btn-outline-light btn-lg px-5" type="submit">Ingresar</button>
+        <div *ngIf="loading" class="overlay">
+          <div class="spinner">
+            <div></div>
+            <div></div>
+            <div></div>
+            <div></div>
+          </div>
+        </div>
       </form>
     </div>
   </div>

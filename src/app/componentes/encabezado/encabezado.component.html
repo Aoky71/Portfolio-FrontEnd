@@ -10,7 +10,7 @@
       <button onclick="location.href='/portfolio#habilidades';">Habilidades</button><br> 
      <button onclick="location.href='/portfolio#proyectos';">Proyectos</button><br>
      <button onclick="location.href='/portfolio#contacto';">Contacto</button><br>
-      <button *ngIf="autenticaticionService.isLoggedIn()" (click)="displayUpdateForm = !displayUpdateForm" onclick="location.href='/portfolio#encabezado';" ><i class="fa-solid fa-pen"></i>Editar</button>
+      <button *ngIf="autenticaticionService.isLoggedIn()" (click)="displayUpdateForm = !displayUpdateForm" onclick="location.href='/portfolio#encabezado';" ><i class="fa-solid fa-pen"></i> Editar</button>
       <button *ngIf="!autenticaticionService.isLoggedIn()" (click)="redigirLogin()">Ingresar</button><br>
       <button *ngIf="autenticaticionService.isLoggedIn()" (click)="autenticaticionService.cerrarSesion()">Cerrar sesión</button><br>
   </div>
@@ -27,10 +27,14 @@
     </div-->
 
     <div class="col-12" *ngIf="displayUpdateForm">
-        <input [(ngModel)]="persona.nombre" type="text" placeholder={{persona.nombre}}>
-        <input [(ngModel)]="persona.ocupacion" type="text" placeholder={{persona.ocupacion}}>
-        <input [(ngModel)]="persona.urlImagenPerfil" type="text" placeholder="url de la imagen de perfil">
-        <input [(ngModel)]="persona.urlImagenBanner" type="text" placeholder="url de la imagen del banner">
+        Nombre: <br>
+        <input [(ngModel)]="persona.nombre" type="text" placeholder={{persona.nombre}}><br>
+        Ocupación: <br>
+        <input [(ngModel)]="persona.ocupacion" type="text" placeholder={{persona.ocupacion}}><br>
+        Url de la imagen de perfil: <br>
+        <input [(ngModel)]="persona.urlImagenPerfil" type="text" placeholder="url de la imagen de perfil"><br>
+        Url de la imagen del banner: <br>
+        <input [(ngModel)]="persona.urlImagenBanner" type="text" placeholder="url de la imagen del banner"><br>
         <button type="button" class="btn btn-success btn-sm" (click)="cargar(persona)">Editar</button>
       </div></div>
 </header>

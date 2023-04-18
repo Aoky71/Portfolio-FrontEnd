@@ -1,5 +1,13 @@
 <footer id="contacto">
     <div class="container">
+      <div *ngIf="loading" class="overlay">
+        <div class="spinner">
+          <div></div>
+          <div></div>
+          <div></div>
+          <div></div>
+        </div>
+      </div>
       <h1>Contacto</h1>
       <div class="social-links">
         <a href="https://biolink.website/EstebanBelmonte" target="_blank"><i class="fa-solid fa-address-book"></i></a>

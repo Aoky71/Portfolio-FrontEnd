@@ -14,6 +14,8 @@ export class LoginComponent implements OnInit {
   form:FormGroup;
   isLogged=false;
   errorLogin = false;
+  loading = false;
+
 
 constructor(private formBuilder:FormBuilder, private autenticacionService:AutenticacionService, private ruta:Router) {
   this.form=this.formBuilder.group(
@@ -38,6 +40,7 @@ get Password(){
 
 onEnviar(event: Event) {
   event.preventDefault();
+  this.loading = true;
   this.autenticacionService.iniciarSesion(this.form.value).subscribe(data => {
     console.log("DATA:" + JSON.stringify(data));
     this.ruta.navigate(['/portfolio'])
@@ -45,5 +48,6 @@ onEnviar(event: Event) {
   }, error => {
     this.errorLogin = true;
   });
+  this.loading = false;
 }
 }

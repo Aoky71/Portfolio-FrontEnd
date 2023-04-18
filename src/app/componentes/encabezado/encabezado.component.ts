@@ -15,7 +15,7 @@ export class EncabezadoComponent implements OnInit {
   personas: Persona[] = [];
   displayUpdateForm: boolean = false;
   postId: any;
- 
+  
    constructor(private personaService:PersonaService, private router:Router, private activeRoute:ActivatedRoute, public autenticaticionService: AutenticacionService) { 
    }
  

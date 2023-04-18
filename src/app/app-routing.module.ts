@@ -3,12 +3,14 @@ import { FormsModule } from '@angular/forms';
 import { RouterModule, Routes } from '@angular/router';
 import { LoginComponent } from './componentes/iniciar-sesion/login.component';
 import { PorfolioComponent } from './componentes/porfolio/porfolio.component';
+import { CertificadosComponent } from './componentes/certificados/certificados.component';
 
 
 const routes: Routes = [
   {path:'portfolio',component:PorfolioComponent },
   {path:'iniciar-sesion',component:LoginComponent},
-  {path:'',redirectTo:'iniciar-sesion',pathMatch:'full'}
+  {path: 'certificados',component:CertificadosComponent},
+  {path:'',redirectTo:'portfolio',pathMatch:'full'}
 ];
 
 @NgModule({

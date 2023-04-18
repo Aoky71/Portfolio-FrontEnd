@@ -1,6 +1,7 @@
 import { HttpClient } from '@angular/common/http';
 import { Injectable } from '@angular/core';
 import { Observable } from 'rxjs';
+import { environment } from 'src/environments/environment';
 import { Proyecto } from '../componentes/proyectos/proyecto';
 
 @Injectable({
@@ -8,12 +9,19 @@ import { Proyecto } from '../componentes/proyectos/proyecto';
   })
 export class ProyectoService{
 
-
+/*En desarrollo:
     private url:string="http://localhost:8080/api/proyecto";
     private urlLista:string="http://localhost:8080/api/proyecto/traer";
     private urlCrear:string="http://localhost:8080/api/proyecto/crear";
     private urlEliminar:string="http://localhost:8080/api/proyecto/borrar"
-    private urlActualizar:string="http://localhost:8080/api/proyecto/editar"
+    private urlActualizar:string="http://localhost:8080/api/proyecto/editar" */
+
+    //En produccion:
+    private url:string= environment.URL+"api/proyecto"  //"https://portfolio-back-end-p9cb.onrender.com/api/proyecto";
+    private urlLista:string= this.url+"/traer"  //"https://portfolio-back-end-p9cb.onrender.com/api/proyecto/traer";
+    private urlCrear:string= this.url+"/crear" //"https://portfolio-back-end-p9cb.onrender.com/api/proyecto/crear";
+    private urlEliminar:string= this.url+"/borrar"  //"https://portfolio-back-end-p9cb.onrender.com/api/proyecto/borrar"
+    private urlActualizar:string= this.url+"/editar"  //"https://portfolio-back-end-p9cb.onrender.com/api/proyecto/editar"
 
     constructor(private http:HttpClient) {}
 

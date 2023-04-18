@@ -18,17 +18,21 @@ displayForm: boolean = false;
 displayUpdateForm: boolean = false;
 displayDeleteForm:boolean = false;
 postId: any;
+loading = false;
 
 
 constructor(private educacionService:EducacionService, private router:Router, private activatedRoute:ActivatedRoute, private http: HttpClient, public autenticaticionService: AutenticacionService) { }
 
 createEducacion():void {
+this.loading = true;
 this.educacionService.create(this.educacion).subscribe(
 data => {
 this.educaciones.push(data);
 this.educacion = new Educacion();
 this.displayForm = false;
-location.reload();
+setTimeout(() => {
+    location.reload();
+}, 5000);
 }
 );
 }
@@ -41,13 +45,17 @@ cargar(educacion: Educacion):void{
 }
 
 deleteEducacion(educacion: Educacion):void {
+this.loading = true;
 this.educacionService.delete(educacion.id).subscribe(
 data => {
 this.educaciones = this.educaciones.filter(e => e !== educacion);
 this.displayDeleteForm = false;
 }
 );
-location.reload();
+//location.reload();
+setTimeout(() => {
+    location.reload();
+}, 5000);
 }
 
 

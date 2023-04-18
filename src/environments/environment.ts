@@ -4,10 +4,10 @@
 
 export const environment = {
   production: false,
-  apiUrl: 'http://localhost:8080/api',
+  URL: 'https://portfolio-back-end-p9cb.onrender.com/api',
   cors: {
     enabled: true,
-    origin: 'http://localhost:4200',
+    origin: 'https://portfolio-front-end-9b739.web.app',
     headers: 'Authorization, Content-Type',
     methods: 'GET, POST, PUT, DELETE',
     credentials: true

@@ -1,6 +1,7 @@
 import { HttpClient } from '@angular/common/http';
 import { Injectable } from '@angular/core';
 import { Observable } from 'rxjs';
+import { environment } from 'src/environments/environment';
 import {Skills} from '../componentes/skills/skills';
 
 @Injectable({
@@ -9,11 +10,19 @@ import {Skills} from '../componentes/skills/skills';
 
 export class SkillsService {
 
+  /*En desarrollo:
     private url:string="http://localhost:8080/api/skill"
     private urlLista:string="http://localhost:8080/api/skill/traer"
     private urlCrear:string="http://localhost:8080/api/skill/crear"
     private urlEliminar:string="http://localhost:8080/api/skill/borrar"
-    private urlActualizar:string="http://localhost:8080/api/skill/editar"
+    private urlActualizar:string="http://localhost:8080/api/skill/editar" */
+
+    //En produccion:
+    private url:string= environment.URL+"api/skill" //"https://portfolio-back-end-p9cb.onrender.com/api/skill"
+    private urlLista:string= this.url+"/traer"  //"https://portfolio-back-end-p9cb.onrender.com/api/skill/traer"
+    private urlCrear:string= this.url+"/crear" //"https://portfolio-back-end-p9cb.onrender.com/api/skill/crear"
+    private urlEliminar:string= this.url+"/borrar" //"https://portfolio-back-end-p9cb.onrender.com/api/skill/borrar"
+    private urlActualizar:string= this.url+"/editar"  //"https://portfolio-back-end-p9cb.onrender.com/api/skill/editar"
 
     constructor(private http:HttpClient) {}
 
@@ -23,8 +32,8 @@ export class SkillsService {
   }
 
   // crear Skill
-  create(educacion:Skills):Observable<Skills>{
-    return this.http.post<Skills>(this.urlCrear, educacion);
+  create(skill:Skills):Observable<Skills>{
+    return this.http.post<Skills>(this.urlCrear, skill);
   }
 
   //Obtener Skill

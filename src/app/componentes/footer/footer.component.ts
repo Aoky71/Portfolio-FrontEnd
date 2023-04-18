@@ -19,17 +19,21 @@ displayForm: boolean = true;
 displayUpdateForm: boolean = false;
 displayDeleteForm:boolean = false;
 postId: any;
+loading = false;
 
 
 constructor(private footerService:FooterService, private router:Router, private activatedRoute:ActivatedRoute, private http: HttpClient, public autenticaticionService: AutenticacionService) { }
 
 createFooter():void {
+    this.loading = true;
 this.footerService.create(this.footer).subscribe(
 data => {
 this.footers.push(data);
 this.footer = new Footer();
 this.displayForm = false;
-location.reload();
+setTimeout(() => {
+    location.reload();
+}, 5000);
 }
 );
 }
@@ -42,13 +46,16 @@ cargar(footer: Footer):void{
 }
 
 deleteFooter(footer: Footer):void {
+    this.loading = true;
 this.footerService.delete(footer.id).subscribe(
 data => {
 this.footers = this.footers.filter(e => e !== footer);
 this.displayDeleteForm = false;
 }
 );
-location.reload();
+setTimeout(() => {
+    location.reload();
+}, 5000);
 }
 
 

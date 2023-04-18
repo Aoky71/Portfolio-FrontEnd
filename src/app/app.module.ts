@@ -24,6 +24,7 @@ import { FooterService } from './servicios/footer.service';
 import { FooterComponent } from './componentes/footer/footer.component';
 import { SoftComponent } from './componentes/Soft/Soft.component';
 import { SoftService } from './servicios/Soft.Service';
+import { CertificadosComponent } from './componentes/certificados/certificados.component';
 
 
 @NgModule({
@@ -38,14 +39,15 @@ import { SoftService } from './servicios/Soft.Service';
     LoginComponent,
     PorfolioComponent,
     FooterComponent,
-    SoftComponent
+    SoftComponent,
+    CertificadosComponent
   ],
   imports: [
     FormsModule,
     BrowserModule,
     AppRoutingModule,
     HttpClientModule,
-    ReactiveFormsModule
+    ReactiveFormsModule,
   ],
   providers: [
     AcercaDeService,

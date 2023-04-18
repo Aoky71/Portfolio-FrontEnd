@@ -18,11 +18,14 @@ displayForm: boolean = false;
 displayUpdateForm: boolean = false;
 displayDeleteForm:boolean = false;
 postId: any;
+loading = false;
+
 
 
 constructor(private softService:SoftService, private router:Router, private activatedRoute:ActivatedRoute, private http: HttpClient, public autenticaticionService: AutenticacionService) { }
 
 createSoft():void {
+  this.loading = true;
 this.softService.create(this.soft).subscribe(
 data => {
 this.softs.push(data);
@@ -31,7 +34,9 @@ this.displayForm = false;
 this.router.navigate(['porfolio'])
 }
 );
-location.reload();
+setTimeout(() => {
+  location.reload();
+}, 5000);
 }
 
 cargar(soft: Soft):void{
@@ -42,13 +47,16 @@ cargar(soft: Soft):void{
 }
 
 deleteSoft(soft: Soft):void {
+  this.loading = true;
 this.softService.delete(soft.id).subscribe(
 data => {
 this.softs = this.softs.filter(e => e !== soft);
 this.displayDeleteForm = false;
 }
 );
-location.reload();
+setTimeout(() => {
+  location.reload();
+}, 5000);
 }
 
 

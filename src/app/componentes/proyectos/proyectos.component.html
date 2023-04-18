@@ -1,10 +1,18 @@
 <div class="container-text-center" id="proyectos">
     <div class="row row-cols-12">
+      <div *ngIf="loading" class="overlay">
+        <div class="spinner">
+          <div></div>
+          <div></div>
+          <div></div>
+          <div></div>
+        </div>
+      </div>
         <div class="col-10">
             <h2>Proyectos</h2>
           </div>
           <div class="col-2">
-            <button *ngIf="autenticaticionService.isLoggedIn()" type="button" class="btn btn-outline-light" (click)="displayForm = !displayForm"><i class="fa-solid fa-pen"></i></button>
+            <button *ngIf="autenticaticionService.isLoggedIn()" type="button" class="btn btn-outline-light" (click)="displayForm = !displayForm"><i class="fa-solid fa-plus"></i></button>
             <button *ngIf="autenticaticionService.isLoggedIn()" type="button" class="btn btn-outline-light" (click)="displayUpdateForm = !displayUpdateForm"><i class="fa-solid fa-pen"></i></button>
             <button *ngIf="autenticaticionService.isLoggedIn()" type="button" class="btn btn-outline-light" (click)="displayDeleteForm = !displayDeleteForm"><i class="fa-solid fa-trash"></i></button>
           </div>
@@ -28,9 +36,9 @@
       </div>
            <div *ngIf="displayUpdateForm">
             <input [(ngModel)]="proyecto.nombreProyecto" type="text" placeholder={{proyecto.nombreProyecto}}><br>
+            <input [(ngModel)]="proyecto.descripcionProyecto" type="text" placeholder={{proyecto.descripcionProyecto}}><br>
             <input [(ngModel)]="proyecto.urlProyecto" type="text" placeholder={{proyecto.urlProyecto}}><br>
             <input [(ngModel)]="proyecto.urlGit" type="text" placeholder={{proyecto.urlGit}}><br>
-            <input [(ngModel)]="proyecto.descripcionProyecto" type="text" placeholder={{proyecto.descripcionProyecto}}><br>
             <input [(ngModel)]="proyecto.urlImagen" type="text" placeholder={{proyecto.urlImagen}}><br>
             <button type="button" class="btn btn-success btn-sm" (click)="cargar(proyecto)">Editar</button>
           </div>

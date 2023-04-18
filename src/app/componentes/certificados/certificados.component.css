@@ -1,0 +1,20 @@
+@keyframes pulse {
+    0% {
+      transform: scale(1);
+    }
+    50% {
+      transform: scale(1.05);
+    }
+    100% {
+      transform: scale(1);
+    }
+  }
+
+  .btn-home {
+    position: absolute;
+    top: 0;
+    left: 0;
+    margin-top: 1%;
+    margin-left: 1%;
+  }
+  
